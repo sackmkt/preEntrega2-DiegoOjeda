@@ -6,6 +6,33 @@ const presupuesto = {
     precios: []
 };
 
+let agregarMas = true;
+while (agregarMas) {
+    const opcion = prompt("Ingrese la opción deseada:\n1. Agregar producto\n2. Eliminar producto\n3. Mostrar presupuesto");
+    switch (opcion) {
+        case "1":
+            agregarProducto();
+            break;
+        case "2":
+            eliminarProducto();
+            break;
+        case "3":
+            mostrarPresupuesto();
+            break;
+        default:
+            alert("Opción inválida");
+    }
+    agregarMas = confirm("¿Desea realizar otra operación en el presupuesto?");
+   
+}
+
+mostrarPresupuesto();
+
+console.log(presupuesto.productos, presupuesto.precios);
+
+//FUNCIONES --------------------->>
+
+
 function agregarProducto(){
 
     const producto = prompt("Ingrese el producto que desea agregar:");
@@ -21,7 +48,7 @@ function agregarProducto(){
 function eliminarProducto(){
     const productoAEliminar = prompt("Ingrese el nombre del producto que desea eliminar:");
     const indice = presupuesto.productos.indexOf(productoAEliminar);
-    
+
     if (indice === -1) {
         alert("No se encontró el producto en el presupuesto");
     } else {
@@ -51,29 +78,3 @@ function mostrarPresupuesto(){
     
       alert(presupuestoFinal);
 }
-
-
-
-let agregarMas = true;
-while (agregarMas) {
-    const opcion = prompt("Ingrese la opción deseada:\n1. Agregar producto\n2. Eliminar producto\n3. Mostrar presupuesto");
-    switch (opcion) {
-        case "1":
-            agregarProducto();
-            break;
-        case "2":
-            eliminarProducto();
-            break;
-        case "3":
-            mostrarPresupuesto();
-            break;
-        default:
-            alert("Opción inválida");
-    }
-    agregarMas = confirm("¿Desea realizar otra operación en el presupuesto?");
-   
-}
-
-mostrarPresupuesto();
-
-console.log(presupuesto.productos, presupuesto.precios);
